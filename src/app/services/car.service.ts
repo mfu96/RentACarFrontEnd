@@ -10,14 +10,16 @@ import { ListResponseModel } from '../models/responses/listResponseModel';
 })
 export class CarService {
  
-  apiUrl='https://localhost:44389/api/cars';
+  apiUrl='https://localhost:44389/api/';
   constructor(private httpClient:HttpClient){}
   getCars():Observable<ListResponseModel<Car>>{
+    let newPath= this.apiUrl +"cars/getall"
     return this.httpClient
-    .get<ListResponseModel<Car>>(this.apiUrl+'/getall');
+    .get<ListResponseModel<Car>>(newPath);
   }
   getCarDetails():Observable<ListResponseModel<CarDetailDto>>{
+    let newPath= this.apiUrl +"cars/getdetails";
     return this.httpClient.get<ListResponseModel<CarDetailDto>>
-    (this.apiUrl+ '/getdetails');
+    (newPath);
   }
 }

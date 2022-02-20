@@ -8,9 +8,11 @@ import { ListResponseModel } from '../models/responses/listResponseModel';
   providedIn: 'root'
 })
 export class RentalService {
-  apiUrl='https://localhost:44389/api/rentals';
+  apiUrl='https://localhost:44389/api/';
  
   constructor(private httpClient:HttpClient) { }
   getRentalDetails():Observable<ListResponseModel<RentalDetailDto>>{
-    return this.httpClient.get<ListResponseModel<RentalDetailDto>>(this.apiUrl+ '/getdetails');
+    let newPath= this.apiUrl +"rentals/getdetails"
+    return this.httpClient.get<ListResponseModel<RentalDetailDto>>
+    (newPath);
   }}
