@@ -1,9 +1,10 @@
 <ul class="list-group">
   <li (click)='setCurrentCategory(category)'
-  roterLink="cars/getbycatego/"
+  routerLink="/cars/category/{{category.categoryId}}"
   *ngFor="let category of categories"
    [class]="getCurrentCategoryClass(category)">
     {{category.categoryName}}
   </li>
+  <br>
  <h5 *ngIf="currentCategory">{{currentCategory.categoryName}}</h5>
 </ul>

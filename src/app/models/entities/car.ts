@@ -6,7 +6,7 @@ export interface Car{
   colorId:number;
   modelYear:number;
   unitPrice:number;
-  unitInStock:number;
+  unitsInStock:number;
   description:string;
   imageId:number;  
 }

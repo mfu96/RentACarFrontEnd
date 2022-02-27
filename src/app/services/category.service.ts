@@ -15,4 +15,6 @@ export class CategoryService {
     return this.httpClient
     .get<ListResponseModel<Category>>(newPath);
   }
+
+  
 }
