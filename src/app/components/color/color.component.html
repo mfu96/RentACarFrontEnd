@@ -1,4 +1,4 @@
-<div *ngIf="dataLoaded == false" class="spinner-border text-info" role="status">
+<!-- <div *ngIf="dataLoaded == false" class="spinner-border text-info" role="status">
   <span class="visually-hidden">Loading...</span>
 </div>
 
@@ -14,10 +14,10 @@
     <td>{{ color.colorName }}</td>
     
   </tr>
-</table>
+</table> -->
 
-<!-- <ul class="list-group">
-  <li [class]="getAllCololorClass()" routerLink="/colors" >Tüm Renkler</li>
+<ul class="list-group">
+  <li [class]="getAllColorClass()" routerLink="/cars" >Tüm Renkler</li>
   <li
     (click)="setCurrentColor(color)"
     routerLink="/cars/color/{{ color.colorId }}"
@@ -30,7 +30,7 @@
 
 <h5 *ngIf="currentColor">
   {{ currentColor + " seçtiniz" }}
-</h5> -->
+</h5>
 <!-- currentCategory undefiend'iken (yani yukarda belrtilen
             click gerçekleşmediği zaman) boş tablo döndürüyor
             burdaki ngIf ise durumu defiend olduğu zaman devreye gir demek -->

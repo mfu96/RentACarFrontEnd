@@ -22,7 +22,7 @@ export class BrandComponent implements OnInit {
   }
 
   getBrands() {
-    this.brandService.getBrands().subscribe((response) => {
+    this.brandService.getBrands().subscribe(response => {
       this.brands = response.data;
       this.dataLoaded = true;
     });
@@ -41,7 +41,6 @@ export class BrandComponent implements OnInit {
   getAllBrandClass(){
     if(!this.currentBrand){
       return'list-group-item active';
-
     }
     else {
       return 'list-group-item';

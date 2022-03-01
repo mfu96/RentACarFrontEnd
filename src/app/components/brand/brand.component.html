@@ -16,7 +16,7 @@
 </table> -->
 
 <ul class="list-group">
-  <li [class]="getAllBrandClass()" routerLink="/cars">Tüm Renkler</li>
+  <li [class]="getAllBrandClass()" routerLink="/cars">Tüm Markalar</li>
 <li (click)="setCurrentBrand(brand)"
 routerLink="/cars/brand/{{brand.brandId}}"
 *ngFor="let brand of brands"
@@ -25,5 +25,9 @@ routerLink="/cars/brand/{{brand.brandId}}"
 {{brand.brandName}}
 
 </li>
+<h4 *ngIf="currentBrand">
+  {{currentBrand}}
+</h4>
+<br>
 </ul>
 
