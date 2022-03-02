@@ -29,7 +29,7 @@ export class ColorComponent implements OnInit {
  }
  getCurrentColorClass(color:Color){
    if(color==this.currentColor){
-     return 'list-group-item active 2 '
+     return 'list-group-item active'
    }
    else{
      return 'list-group-item'
