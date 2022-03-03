@@ -17,6 +17,7 @@ export class CarComponent implements OnInit {
   colors: Color[] = [];
   brands: Brand[]=[];
   carDetails: CarDetailDto[] = [];
+  currentCar:Car;
   dataLoaded = false;
 
   constructor(
@@ -75,4 +76,29 @@ export class CarComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
+  getCarsByDetail(carId:number){
+    this.carService.getCarsByDetail(carId).subscribe(response=>{
+      this.cars=response.data;
+      this.dataLoaded=true;
+    })
+  }
+  setCurrentCar(car: Car) {
+    this.currentCar = car;
+  }
+
+  getCurrentCarClass(car: Car) {
+    if (car == this.currentCar) {
+      return 'list-group-item active';
+    } else {
+      return 'list-group-item';
+    }
+  }
+  getAllCarClass(){
+    if(!this.currentCar){
+      return'list-group-item active';
+    }
+    else {
+      return 'list-group-item';
+  }
+}
 }

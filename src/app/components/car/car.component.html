@@ -17,7 +17,10 @@
     </thead>
     <tr *ngFor="let car of cars">
         <td>{{car.carId}}</td>
-        <td>{{car.carName}}</td>
+        <td (click)="setCurrentCar(car)"
+        routerLink="/cars/car/{{car.carId}}"
+        *ngFor="let car of cars"
+        [class]="getCurrentCarClass(car)" >{{car.carName}}</td>
         <td>{{car.categoryId}}</td>
         <td>{{car.brandId}}</td>
         <td>{{car.colorId}}</td>
