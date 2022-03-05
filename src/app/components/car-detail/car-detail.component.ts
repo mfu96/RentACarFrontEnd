@@ -11,6 +11,7 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarDetailComponent implements OnInit {
   carDetails: CarDetailDto[] = [];
+  carByDetail: CarDetailDto[]=[];
   cars: Car[] = [];
   dataLoaded = false;
 
@@ -21,9 +22,14 @@ export class CarDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
-      if (params['categoryId']) {
-        this.getCarsByCategory(params['categoryId']);
-      } else {
+      // if (params['categoryId']) {
+      //   this.getCarsByCategory(params['categoryId']);
+      // } 
+      // else 
+      if (params['carId']) {
+        this.getCarsByDetail(params['carId']);
+      }
+       else {
         this.getCarDetails();
       }
     });
@@ -36,9 +42,17 @@ export class CarDetailComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
-  getCarsByCategory(categoryId: number) {
-    this.carService.getCarsByCategory(categoryId).subscribe((response) => {
-      this.cars= response.data;
+
+  // getCarsByCategory(categoryId: number) {
+  //   this.carService.getCarsByCategory(categoryId).subscribe((response) => {
+  //     this.cars = response.data;
+  //     this.dataLoaded = true;
+  //   });
+  // }
+
+  getCarsByDetail(carId: number) {
+    this.carService.getCarsByDetail(carId).subscribe((respone) => {
+      this.carByDetail = respone.data;
       this.dataLoaded = true;
     });
   }
