@@ -11,7 +11,6 @@ import { CarService } from 'src/app/services/car.service';
 })
 export class CarDetailComponent implements OnInit {
   carDetails: CarDetailDto[] = [];
-  carByDetail: CarDetailDto[]=[];
   cars: Car[] = [];
   dataLoaded = false;
 
@@ -52,7 +51,7 @@ export class CarDetailComponent implements OnInit {
 
   getCarsByDetail(carId: number) {
     this.carService.getCarsByDetail(carId).subscribe((respone) => {
-      this.carByDetail = respone.data;
+      this.carDetails = respone.data;
       this.dataLoaded = true;
     });
   }
