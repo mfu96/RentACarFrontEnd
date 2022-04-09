@@ -15,6 +15,8 @@ import { CarImageComponent } from './components/car-image/car-image.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { RentalDetailComponent } from './components/rental-detail/rental-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +31,7 @@ import { HttpClientModule } from '@angular/common/http';
     CarImageComponent,
     RentalComponent,
     RentalDetailComponent
+    
   ],
   imports: [
     BrowserModule,

@@ -55,4 +55,13 @@ export class CarDetailComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
+
+  setCarouselClassName(index:Number){
+    if(index == 0){
+      return "carousel-item active";
+    }
+    else {
+      return "carousel-item";
+    }
+  }
 }
