@@ -15,6 +15,7 @@ import { CarImageComponent } from './components/car-image/car-image.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { RentalDetailComponent } from './components/rental-detail/rental-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SafePipe } from './safe.pipe';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     CustomerComponent,
     CarImageComponent,
     RentalComponent,
-    RentalDetailComponent
+    RentalDetailComponent,
+    SafePipe
     
   ],
   imports: [
