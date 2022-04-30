@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/entities/car';
 import { CarDetailDto } from 'src/app/models/entities/carDetailDto';
+import { CarImage } from 'src/app/models/entities/carImage';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
+//import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-car-detail',
@@ -12,11 +15,14 @@ import { CarService } from 'src/app/services/car.service';
 export class CarDetailComponent implements OnInit {
   carDetails: CarDetailDto[] = [];
   cars: Car[] = [];
+  carImages: CarImage[]=[];
   dataLoaded = false;
 
   constructor(
     private carService: CarService,
-    private activatedRoute: ActivatedRoute
+    private carImageService:CarImageService,
+    private activatedRoute: ActivatedRoute,
+   // private domSanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
@@ -25,8 +31,10 @@ export class CarDetailComponent implements OnInit {
       //   this.getCarsByCategory(params['categoryId']);
       // } 
       // else 
-      if (params['carId']) {
+      if (params['carId']) { 
+        this.getImageByCarId(params["carId"]);
         this.getCarsByDetail(params['carId']);
+       
       }
        else {
         this.getCarDetails();
@@ -55,12 +63,27 @@ export class CarDetailComponent implements OnInit {
       this.dataLoaded = true;
     });
   }
+  getImageByCarId(carid:number){
+    this.carImageService.getImageByCarId(carid).subscribe(response=>{
+      this.carImages=response.data;
+      this.dataLoaded = true;
+      console.log("Çalıştı mı?")
+    })
+  }
 
   setCarouselClassName(index:Number){
     if(index == 0){
       return "carousel-item active";
     }
     else {
+      return "carousel-item";
+    }
+  }
+
+  getSliderClassName(index:Number){
+    if(index == 0){
+      return "carousel-item active";
+    } else {
       return "carousel-item";
     }
   }
